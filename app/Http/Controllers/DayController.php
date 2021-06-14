@@ -82,7 +82,16 @@ class DayController extends Controller
             return   $array['error'] = "id não encontrado";
         }    
 }
-
+    public function getDay($id){
+        $array = ['error'=>''];
+        $day = Day::find($id);
+        if($day){
+            $array['day'] = $day;
+        } else {
+            $array['error'] = 'Dia inexistente';
+        }
+        return $array;
+    }
     public function destroy($id) {
         $array = ['error'=>''];
         $dayUser = Day::find($id);

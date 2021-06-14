@@ -29,8 +29,11 @@ Route::middleware('auth:api')->group(function(){
     Route::delete('/userdel/{id}',[UserController::class,'delete']);
     //
 
-    //
+    //getDay
     Route::get('/day',[DayController::class,'show']);
+    //pegando unico dia
+    Route::get('/day/{id}',[DayController::class,'getDay']);
+    //
     Route::put('/day/{id}',[DayController::class,'update']);
     Route::post('/day',[DayController::class,'store']);
     Route::delete('/day/{id}',[DayController::class,'destroy']);
@@ -38,6 +41,9 @@ Route::middleware('auth:api')->group(function(){
 
     //
     Route::get('/delivery',[DeliveryController::class,'show']);
+    //pegando unico Delivery pelo dia 
+    Route::get('/delivery/{id}',[DeliveryController::class,'getDelivery']);
+    //
     Route::put('/delivery/{id}',[DeliveryController::class,'update']);
     Route::post('/delivery',[DeliveryController::class,'store']);
     Route::delete('/delivery/{id}',[DeliveryController::class,'destroy']);

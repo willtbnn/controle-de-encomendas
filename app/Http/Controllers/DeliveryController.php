@@ -20,6 +20,16 @@ class DeliveryController extends Controller
        $array['error']='Nem um delivery encontrado';  }
         return $array;
     }
+    public function getDelivery($id){
+        $array = ['error'=> ''];
+        $listDelivery = Delivery::where('id_day', $id)->get();
+        if($listDelivery){
+            $array['deliverys'] = $listDelivery;
+        }else{
+            $array['error'] = "Não há delivery's para esse dia ¹";
+        }
+        return $array;
+    }
 
     
 
